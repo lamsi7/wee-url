@@ -13,21 +13,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Generate short and cheeky url">
     <meta name="author" content="DK">
-    <title>Generate a wee url!</title>
+    <title>Wee url!</title>
 
     <!-- Custom styles for this template -->
     <link href="{% static 'wee_url_app/style.css'%}" rel="stylesheet" type="text/css">
 </head>
 
 <body class="text-center">
-    <form class="form-generate-url">
+    <form class="form-generate-url" method="POST">
         {% csrf_token %}
         <h1 class="h3 mb-3 font-weight-normal">Wee URL</h1>
         <label for="inputURL" class="sr-only">URL</label>
-        <input type="text" id="inputURL" class="form-control" placeholder="Paste URL here" required autofocus>
+        <input type="text" id="inputURL" name="inputURL" class="form-control" placeholder="Paste URL here" required
+            autofocus>
         <button id="btn-generate-url" class="btn btn-lg btn-primary btn-block" type="submit">Generate short URL</button>
         <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
     </form>
+
+    <script src="{% static 'wee_url_app/main.js'%}"></script>
 </body>
 
 </html>
