@@ -1,1 +1,32 @@
-<h1>Hi</h1>
+{# Load the tag library #}
+{% load bootstrap4 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Generate short and cheeky url">
+    <meta name="author" content="DK">
+    <title>Generate a wee url!</title>
+
+    <!-- Custom styles for this template -->
+    <!-- <link href="index.css" rel="stylesheet"> -->
+</head>
+
+<body class="text-center">
+    <form class="form-generate-url">
+        <h1 class="h3 mb-3 font-weight-normal">Wee URL</h1>
+        <label for="inputURL" class="sr-only">URL</label>
+        <input type="text" id="inputURL" class="form-control" placeholder="Paste URL here" required autofocus>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Generate short URL</button>
+        <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
+    </form>
+</body>
+
+</html>
