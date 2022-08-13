@@ -1,6 +1,6 @@
 {# Load the tag library #}
 {% load bootstrap4 %}
-
+{% load static %}
 {# Load CSS and JavaScript #}
 {% bootstrap_css %}
 {% bootstrap_javascript jquery='full' %}
@@ -16,15 +16,16 @@
     <title>Generate a wee url!</title>
 
     <!-- Custom styles for this template -->
-    <!-- <link href="index.css" rel="stylesheet"> -->
+    <link href="{% static 'wee_url_app/style.css'%}" rel="stylesheet" type="text/css">
 </head>
 
 <body class="text-center">
     <form class="form-generate-url">
+        {% csrf_token %}
         <h1 class="h3 mb-3 font-weight-normal">Wee URL</h1>
         <label for="inputURL" class="sr-only">URL</label>
         <input type="text" id="inputURL" class="form-control" placeholder="Paste URL here" required autofocus>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Generate short URL</button>
+        <button id="btn-generate-url" class="btn btn-lg btn-primary btn-block" type="submit">Generate short URL</button>
         <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
     </form>
 </body>
