@@ -5,7 +5,7 @@ from django.db import models
 
 class UrlModel(models.Model):
     link = models.CharField(max_length=10000)
-    gen_id = models.CharField(max_length=10)
+    gen_id = models.CharField(max_length=15, unique=True)
 
     def __str__(self) -> str:
         return self.link

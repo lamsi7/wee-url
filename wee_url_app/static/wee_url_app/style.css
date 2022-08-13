@@ -21,22 +21,25 @@ body {
 .form-generate-url {
   width: 100%;
   max-width: 330px;
-  padding: 15px;
+  padding-top: 25vh;
   margin: 0 auto;
+  align-items: center;
 }
 
-.form-generate-url .form-control {
-  position: relative;
-  box-sizing: border-box;
-  height: auto;
-  padding: 10px;
-  font-size: 16px;
-}
-.form-generate-url .form-control:focus {
-  z-index: 2;
-}
+
 .form-generate-url input[type="text"] {
   margin-bottom: -1px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
+}
+
+.new-url-not-visible{
+  display:none;
+}
+.new-url-visible{
+  margin-top: 20px;
+}
+
+.text-muted{
+  color: aquamarine;
 }

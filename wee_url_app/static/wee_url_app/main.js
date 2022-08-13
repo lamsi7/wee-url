@@ -12,8 +12,14 @@ submit_btn.onclick = function(e){
             csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
 
         },
-        success: function(){
+        success: function(response){
+            console.log(response)
             console.log("successs");
+            // Add new url to the website
+            document.getElementById("new-url").className = 'new-url-visible'
+            document.getElementById('gen-id').textContent=response['gen_id']
+
+
         }
     });
 }
