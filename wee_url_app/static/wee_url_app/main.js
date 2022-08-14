@@ -17,7 +17,10 @@ submit_btn.onclick = function(e){
             console.log("successs");
             // Add new url to the website
             document.getElementById("new-url").className = 'new-url-visible'
-            document.getElementById('gen-id').textContent=response['gen_id']
+            var full_url = `${response['host']}/${response['gen_id']}`
+            var dynamic_el = document.getElementById('gen-id')
+            dynamic_el.textContent=full_url
+            dynamic_el.href = response['gen_id']
 
 
         }

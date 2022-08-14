@@ -1,10 +1,8 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import redirect, render, HttpResponse
 from .forms import UrlForm
 from .models import UrlModel
 import uuid
-from django.http import JsonResponse
-
-# Create your views here.
+from django.http import HttpResponseBadRequest, JsonResponse
 
 
 def index(request):
@@ -34,5 +32,17 @@ def generate_short_url(request):
             gen_id = generate_uuid()
             new_url.gen_id = gen_id
             new_url.save()
-            response = {"link": link, "gen_id": gen_id}
+            # Get host so we can join it with gen_id and display it
+            host = request.get_host()
+            response = {"link": link, "gen_id": gen_id, "host": host}
+            print(response)
             return JsonResponse(response)
+
+
+def redirect_from_short_url(request, query):
+    if len(query) != 5:
+        return HttpResponseBadRequest("Incorrect length of the query ")
+    obj = UrlModel.objects.filter(gen_id=query)
+    if obj.exists():
+        return redirect(obj.values()[0]["link"])
+    return HttpResponseBadRequest("URL does not exist in the database")
