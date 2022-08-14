@@ -9,6 +9,10 @@ class UrlForm(forms.ModelForm):
         labels = {"link": ""}
         widgets = {
             "link": forms.TextInput(
-                attrs={"id": "inputURL", "placeholder": "Paste URL here"}
+                attrs={
+                    "id": "inputURL",
+                    "placeholder": "Paste URL here",
+                    "class": "form-control",
+                }
             )
         }

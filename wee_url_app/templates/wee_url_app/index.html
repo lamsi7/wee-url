@@ -17,21 +17,25 @@
 
     <!-- Custom styles for this template -->
     <link href="{% static 'wee_url_app/style.css'%}" rel="stylesheet" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
 
 <body class="text-center d-flex flex-column min-vh-100">
     <form class="form-generate-url" method="POST">
-        <h1 class="h3 mb-3 font-weight-normal">Wee URL</h1>
+        <h1 class="h3 mb-3 font-weight-normal main-text">Wee URL</h1>
         {% csrf_token %}
         {{form.as_p}}
         <button id="btn-generate-url" class="btn btn-lg btn-primary btn-block" type="submit">Generate short URL</button>
         <div id="new-url" class="new-url-not-visible">
-            <h3>New url: <a target="_blank" id="gen-id"></a></h3>
+            <h3 class="redirecting-link">New url: </br><a target="_blank" id="gen-id"></a></h3>
         </div>
     </form>
 
     <footer class="mt-auto">
-        <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
+        <p class="mt-5 mb-3 ">&copy; 2022</p>
     </footer>
 
     <script src="{% static 'wee_url_app/main.js'%}"></script>
