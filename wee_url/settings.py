@@ -28,7 +28,7 @@ DEBUG = int(os.environ.get("DEBUG", default=1))
 
 ALLOWED_HOSTS = ["*"]
 
-
+CSRF_TRUSTED_ORIGINS = ["https://wee-url-shortener.herokuapp.com"]
 # Application definition
 
 INSTALLED_APPS = [
